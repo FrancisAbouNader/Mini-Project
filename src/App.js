@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+/*
+In the previous iteration of this todo list app, we pulled in todos data from a JSON file and mapped over it to display the todo items.
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+Eventually we'll want to be able to modify the data, which will only happen if we've "loaded" the data in to the component's state
+
+Challenge: Change the <App /> component into a stateful class component and load the imported `todosData` into state.
+*/
+
+import React from "react"
+import Calendar from "./Calendar"
+import data from "./data"
+
+class App extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      days: data,
+
+
+    }
+  }
+
+
+  render() {
+
+
+    return (
+
+
+      <div>
+        < Calendar />
+      </div >
+
+    )
+  }
 }
 
-export default App;
+export default App

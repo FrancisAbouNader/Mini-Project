@@ -1,0 +1,10 @@
+.card { 
+    background-color: #007fc4;
+    height: 41.5px;
+    width: 41.5px;
+    
+   }
+  .card_disabled {
+    background-color: white !important;
+   }
+
