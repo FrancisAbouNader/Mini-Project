@@ -7,29 +7,22 @@ Challenge: Change the <App /> component into a stateful class component and load
 */
 
 import React from "react"
-import Calendar from "./Calendar"
-import data from "./data"
+import HoursWeekPicker from "./HoursWeekPicker"
+
+
+
 
 class App extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-      days: data,
 
-
-    }
-  }
 
 
   render() {
 
 
     return (
-
-
       <div>
-        < Calendar />
-      </div >
+        <HoursWeekPicker />
+      </div>
 
     )
   }
