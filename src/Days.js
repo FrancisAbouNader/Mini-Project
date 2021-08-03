@@ -6,9 +6,9 @@ export default function Days() {
         <div>
             
             {
-            days.map(days => (
+            days.map((days,index) => (
                        
-                <div className="days mt-3">
+                <div  key={index} className="days mt-3">
                     <div className="col d-flex flex-row">
                         <p className="col" style={{ position: "fixed", left: "150px" }}>  {days}</p>
                         </div>

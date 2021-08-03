@@ -7,9 +7,10 @@ export default function Hours() {
              <div className="HourAm row">
                         <div className="col-md-6 d-flex flex-row ">
                             {
-                                time.map(time => {
+                                time.map((time,index) => {
                                     return (
-                                        <div className="col pt-1">
+                                        <div key={index} className="col pt-1">
+                                            
                                             {time}
                                         </div>
                                     )
@@ -20,8 +21,8 @@ export default function Hours() {
                     <div className="HourPm row">
                         <div className="col-md-6 d-flex flex-row ">
 
-                            {time.map(time => (
-                                <div className="col pt-1">
+                            {time.map((time,index) => (
+                                <div key={index} className="col pt-1">
                                     {time}
                                 </div>
                             ))}
