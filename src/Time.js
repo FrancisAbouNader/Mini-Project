@@ -8,15 +8,14 @@ export default function Time() {
                         <div className="col-md-4  text-center">
                             AM
                             <hr />
-
                         </div>
                            
                         <div className="col-md-4 text-center">
                             PM
                             <hr />
                         </div>
-                        </div>
                     </div>
+             </div>
     
     )
 }

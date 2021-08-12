@@ -15,21 +15,14 @@ export default class SelectSquare extends Component {
         }));    
     }
     render() {
-        // const completedStyle = {
-        //  backgroundColor :  "#2196f3"
-        // }
-        // console.log(this.state.isSelected)
         console.log(this.state.isSelected)
         return (
-          
             <label className="container">
                 <div className="checkmark"
                     onClick={this.handleChange}
-                    // style={this.state.isSelected ? completedStyle : null}
                     style={{ backgroundColor: this.props.color }}
-                />
-                   
-        </label> 
+                />          
+            </label> 
         )   
     }
 }

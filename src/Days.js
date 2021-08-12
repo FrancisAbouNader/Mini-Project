@@ -4,13 +4,12 @@ export default function Days() {
     return (
         <div>   
             {
-            days.map((days,index) => (         
-                <div  key={index} className="days mt-3">
-                   
-                        <p className="col" style={{left: "150px" }}>  {days}</p>        
-                </div>
-            ))      
-        }
+                days.map((days,index) => (         
+                    <div  key={index} className="days mt-3">
+                            <p className="col" style={{left: "150px" }}>  {days}</p>        
+                    </div>
+                ))      
+            }
     </div>
         
     )
