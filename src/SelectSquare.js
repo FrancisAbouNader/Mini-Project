@@ -5,35 +5,31 @@ export default class SelectSquare extends Component {
     constructor() {
         super()
         this.state = {
-            isSelected : false,       
+            isSelected : false,      
         }
-        this.handleChange = this.handleChange.bind(this)
-        
+        this.handleChange = this.handleChange.bind(this)  
     }
-   
-
     handleChange() {
         this.setState(prevState => ({
-            isSelected: !prevState.isSelected
-           
+            isSelected: !prevState.isSelected      
         }));    
     }
-    
     render() {
+        // const completedStyle = {
+        //  backgroundColor :  "#2196f3"
+        // }
+        // console.log(this.state.isSelected)
         console.log(this.state.isSelected)
         return (
-        <label className="container">
-                <input className="checkbox " 
-                type="checkbox"
-                checked={this.state.isSelected}
-                onChange={this.handleChange} >   
-               </input>
-               <span className="checkmark"></span>
-        </label>  
-        )
-        
-        
+          
+            <label className="container">
+                <div className="checkmark"
+                    onClick={this.handleChange}
+                    // style={this.state.isSelected ? completedStyle : null}
+                    style={{ backgroundColor: this.props.color }}
+                />
+                   
+        </label> 
+        )   
     }
-    
-    
 }

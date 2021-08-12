@@ -2,20 +2,21 @@ import React from "react"
 import Time from "./Time"
 import Days from "./Days"
 import Hours from "./Hours"
-import SelectBox from "./SelectBox"
 import "./index.css"
+import Legend from "./Legend"
+import Submit from "./Submit"
 function HoursWeekPicker () {
         return (
             <div>
-         <div className="container mt-4"> 
+                <div className="container mt-4">
+                    <Legend />
+                    <br/>
+                    <br/>
                     <Time/>
                     <Hours/>
-        </div >
+                </div >
                     <Days/>
-            
-            
-                    <SelectBox/>
-            
+                    <Submit/>
             </div>
 
         )

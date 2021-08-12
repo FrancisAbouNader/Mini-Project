@@ -5,7 +5,9 @@
   bottom: 150px;
 }
 .days {
-  padding: 3px;
+  padding: 0px;
+  width: 7px;
+  height: 7px;
 }
 .HourAm {
   position: relative;
@@ -20,4 +22,14 @@
   height: 0px;
   left: 350px;
   bottom: 10px;
+}
+.Available {
+  background-color: #2196f3;
+  width: 30px;
+  height: 15px;
+}
+.Unavailable {
+  background-color: grey;
+  width: 30px;
+  height: 15px;
 }

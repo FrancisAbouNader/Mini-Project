@@ -1,14 +1,7 @@
 .container {
   position: relative;
-}
-
-/* Hide the browser's default checkbox */
-.container input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
+  width: auto;
+  height: auto;
 }
 
 /* Create a custom checkbox */
@@ -20,9 +13,4 @@
   width: 22px;
   padding: 10px;
   background-color: #eee;
-}
-
-/* When the checkbox is checked, add a blue background */
-.container input:checked ~ .checkmark {
-  background-color: #2196f3;
 }
