@@ -20,9 +20,6 @@ function HoursWeekPicker () {
             </div>
 
         )
-    }
-
-
-
-
+}
+    
 export default HoursWeekPicker

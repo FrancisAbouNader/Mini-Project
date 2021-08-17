@@ -24,6 +24,8 @@
   bottom: 10px;
 }
 .Available {
+  float: left;
+  display: inline;
   background-color: #2196f3;
   width: 30px;
   height: 15px;

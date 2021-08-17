@@ -6,10 +6,9 @@ export default function Legend() {
             <div className="float-right">
                 <div className="Available">
                      <p> Available</p>   
-                </div>
+               </div>
             </div>
             <br />
-            
             <div className="float-right">
                 <div className="Unavailable">
                      <p> Unavailable</p>   
