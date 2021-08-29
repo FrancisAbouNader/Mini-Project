@@ -5,12 +5,19 @@
 }
 
 /* Create a custom checkbox */
-.checkmark {
-  position: absolute;
+.card {
+  border-radius: 0px;
+  position: relative;
   top: 0;
   left: 0;
-  height: 22px;
-  width: 22px;
-  padding: 10px;
+  height: 30px;
+  width: 30px;
   background-color: #eee;
+  border: 1px solid #e1e1e1;
+}
+@media screen and (max-width: 360px) {
+  .card {
+    width: 27px;
+    height: 27px;
+  }
 }

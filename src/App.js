@@ -1,5 +1,5 @@
-import React from "react"
-import HoursWeekPicker from "./HoursWeekPicker"
+import React from "react";
+import HoursWeekPicker from "./HoursWeekPicker";
 class App extends React.Component {
   render() {
     return (
@@ -7,9 +7,8 @@ class App extends React.Component {
         <HoursWeekPicker />
         {/* <SelectSquare/> */}
       </div>
-
-    )
+    );
   }
 }
 
-export default App
+export default App;

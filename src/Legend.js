@@ -1,23 +1,18 @@
-import React from 'react'
-import "./index.css"
+import React from "react";
+import "./index.css";
+
 export default function Legend() {
-    return (
-        <div>
-            <div className="float-right">
-                <div className="Available">
-                     <p> Available</p>   
-               </div>
-            </div>
-            <br />
-            <div className="float-right">
-                <div className="Unavailable">
-                     <p> Unavailable</p>   
-                </div>
-            </div>
-        
-        </div>
-        
-       
-       
-    )
+  return (
+    <div>
+      <div className="Legend float-right">
+        <div className="Available" />
+        <p className="text"> Available</p>
+      </div>
+      <br />
+      <div className="Legend float-right">
+        <div className="Unavailable" />
+        <p className="text"> Unavailable</p>
+      </div>
+    </div>
+  );
 }
