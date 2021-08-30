@@ -15,7 +15,6 @@ export default class SelectSquare extends Component {
     }));
   }
   render() {
-    console.log(this.state.isSelected);
     return (
       <div
         className="card"
