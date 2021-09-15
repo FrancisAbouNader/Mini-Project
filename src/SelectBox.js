@@ -1,4 +1,9 @@
-import React, { useState, useImperativeHandle, forwardRef } from "react";
+import React, {
+  useState,
+  useEffect,
+  useImperativeHandle,
+  forwardRef,
+} from "react";
 import weeklyData from "./data";
 import SelectSquare from "./SelectSquare";
 import "./index.css";
@@ -8,11 +13,10 @@ function SelectBox(props, ref) {
     22, 23, 24,
   ];
   const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-
   const [selectedDates, setSelectedDates] = useState({});
+  const [value, setvalue] = useState("");
 
   function addToSelectedDates(day, hour) {
-    console.log(selectedDates);
     let list = selectedDates;
     if (list.hasOwnProperty(day)) {
       const hourList = list[day].hours;
@@ -27,13 +31,24 @@ function SelectBox(props, ref) {
         hours: hourList,
       };
     }
-
     setSelectedDates(list);
   }
 
+  useEffect(() => {
+    if (value !== "" && Object.entries(selectedDates).length !== 0) {
+      if (value === JSON.stringify(selectedDates, null, 1)) {
+        setTimeout(() => {
+          console.log(value);
+          console.log(selectedDates);
+        }, 500);
+      }
+    }
+  });
+
   useImperativeHandle(ref, () => ({
     SubmitSelectedDates() {
-      console.log("The selected dates are:", selectedDates);
+      setSelectedDates(JSON.parse(value));
+      // console.log(selectedDates);
     },
   }));
 
@@ -43,15 +58,16 @@ function SelectBox(props, ref) {
         {days.map((item, i) => {
           return (
             <div key={i} className="row">
-              {/* <div>
-                <p>{item}</p>
-              </div> */}
               {hours.map((item2, j) => {
                 return (
                   <div
+                    className="square"
                     key={j}
                     onClick={() => {
                       addToSelectedDates(i + 1, item2);
+                      setvalue(() => {
+                        setvalue(JSON.stringify(selectedDates, null, 1));
+                      });
                     }}
                   >
                     {weeklyData[i + 1] !== undefined ? (
@@ -70,6 +86,14 @@ function SelectBox(props, ref) {
           );
         })}
       </div>
+
+      <textarea
+        type="text"
+        value={value}
+        onChange={(e) => {
+          setvalue(e.target.value);
+        }}
+      />
     </div>
   );
 }
