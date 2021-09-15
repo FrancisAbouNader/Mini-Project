@@ -47,8 +47,9 @@ function SelectBox(props, ref) {
 
   useImperativeHandle(ref, () => ({
     SubmitSelectedDates() {
-      setSelectedDates(JSON.parse(value));
-      // console.log(selectedDates);
+      if (Object.entries(selectedDates).length !== 0) {
+        setSelectedDates(JSON.parse(value));
+      }
     },
   }));
 
