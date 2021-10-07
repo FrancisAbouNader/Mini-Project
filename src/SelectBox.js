@@ -7,6 +7,7 @@ import React, {
 import weeklyData from "./data";
 import SelectSquare from "./SelectSquare";
 import "./index.css";
+import TextareaAutosize from "react-textarea-autosize";
 function SelectBox(props, ref) {
   const hours = [
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
@@ -43,7 +44,7 @@ function SelectBox(props, ref) {
         }, 500);
       }
     }
-  });
+  }, [selectedDates, value]);
 
   useImperativeHandle(ref, () => ({
     SubmitSelectedDates() {
@@ -87,9 +88,10 @@ function SelectBox(props, ref) {
           );
         })}
       </div>
-
-      <textarea
-        type="text"
+      <br />
+      <TextareaAutosize
+        rows={5}
+        maxRows={10}
         value={value}
         onChange={(e) => {
           setvalue(e.target.value);

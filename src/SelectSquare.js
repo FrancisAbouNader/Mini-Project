@@ -9,6 +9,10 @@ export default class SelectSquare extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
   }
+  style = {
+    backgroundColor: "red",
+  };
+
   handleChange() {
     this.setState((prevState) => ({
       isSelected: !prevState.isSelected,
@@ -19,7 +23,11 @@ export default class SelectSquare extends Component {
       <div
         className="card"
         onClick={this.handleChange}
-        style={{ backgroundColor: this.props.color }}
+        style={
+          this.state.isSelected
+            ? { backgroundColor: "blue" }
+            : { backgroundColor: this.props.color }
+        }
       />
     );
   }
