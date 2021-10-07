@@ -25,7 +25,7 @@ export default class SelectSquare extends Component {
         onClick={this.handleChange}
         style={
           this.state.isSelected
-            ? { backgroundColor: "blue" }
+            ? { backgroundColor: "#007fc4" }
             : { backgroundColor: this.props.color }
         }
       />
