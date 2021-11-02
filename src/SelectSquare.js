@@ -1,34 +1,24 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import "./selectSquare.css";
 
-export default class SelectSquare extends Component {
-  constructor() {
-    super();
-    this.state = {
-      isSelected: false,
-    };
-    this.handleChange = this.handleChange.bind(this);
+export default function SelectSquare(props) {
+  const [selected, setSelected] = useState(false);
+  function handleFunction() {
+    //Changing state onClick
+      setSelected(!selected);
+      console.log(props.index, props.item22);
   }
-  style = {
-    backgroundColor: "red",
-  };
-
-  handleChange() {
-    this.setState((prevState) => ({
-      isSelected: !prevState.isSelected,
-    }));
-  }
-  render() {
-    return (
+  return (
+    <div>
       <div
         className="card"
-        onClick={this.handleChange}
+        onClick={handleFunction}
         style={
-          this.state.isSelected
+          selected
             ? { backgroundColor: "#007fc4" }
-            : { backgroundColor: this.props.color }
+            : { backgroundColor: props.color }
         }
       />
-    );
-  }
+    </div>
+  );
 }

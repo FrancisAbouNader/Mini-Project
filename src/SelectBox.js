@@ -8,6 +8,7 @@ import weeklyData from "./data";
 import SelectSquare from "./SelectSquare";
 import "./index.css";
 import TextareaAutosize from "react-textarea-autosize";
+
 function SelectBox(props, ref) {
   const hours = [
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
@@ -16,16 +17,35 @@ function SelectBox(props, ref) {
   const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
   const [selectedDates, setSelectedDates] = useState({});
   const [value, setvalue] = useState("");
+  const [data, setData] = useState(weeklyData);
 
   function addToSelectedDates(day, hour) {
     let list = selectedDates;
+    //Checking if list (the object) contain the day selected
     if (list.hasOwnProperty(day)) {
       const hourList = list[day].hours;
+      //Checking if the Array of Hour hourList contain the hour selected
       if (!hourList.includes(hour)) {
+      // if not selected
         hourList.push(hour);
+        list[day].hours = hourList;
+      } else {
+        // if selected 
+        // Checking the length of the array
+        // if greater > 1
+        if (hourList.length > 1) {
+          const index = hourList.indexOf(hour);
+          if (index > -1) {
+            hourList.splice(index, 1);
+            list[day].hours = hourList;
+          }
+        } else {
+          // if less < or equal 1 delete the hole nested object
+          delete list[day];
+        }
       }
-      list[day].hours = hourList;
     } else {
+      // if the day selected is not In the List object
       var newDay = day;
       var hourList = [hour];
       list[newDay] = {
@@ -38,19 +58,17 @@ function SelectBox(props, ref) {
   useEffect(() => {
     if (value !== "" && Object.entries(selectedDates).length !== 0) {
       if (value === JSON.stringify(selectedDates, null, 1)) {
-        setTimeout(() => {
-          console.log(value);
-          console.log(selectedDates);
-        }, 500);
+        console.log(value);
+        console.log(selectedDates);
       }
     }
   }, [selectedDates, value]);
 
   useImperativeHandle(ref, () => ({
     SubmitSelectedDates() {
-      if (Object.entries(selectedDates).length !== 0) {
-        setSelectedDates(JSON.parse(value));
-      }
+      setSelectedDates(JSON.parse(value));
+      setData(JSON.parse(value));
+      console.log(data);
     },
   }));
 
@@ -67,19 +85,19 @@ function SelectBox(props, ref) {
                     key={j}
                     onClick={() => {
                       addToSelectedDates(i + 1, item2);
-                      setvalue(() => {
-                        setvalue(JSON.stringify(selectedDates, null, 1));
-                      });
+                      setvalue(JSON.stringify(selectedDates, null, 1));
                     }}
                   >
-                    {weeklyData[i + 1] !== undefined ? (
-                      weeklyData[i + 1].hours.includes(item2) ? (
-                        <SelectSquare color="#007fc4" />
+                    {data[i + 1] !== undefined ? (
+                      data[i + 1].hours.includes(item2) ? (
+                        <SelectSquare
+                          color="#007fc4"
+                        />
                       ) : (
-                        <SelectSquare color="white" />
+                        <SelectSquare color="white" index={i} item22={item2} />
                       )
                     ) : (
-                      <SelectSquare color="white" />
+                      <SelectSquare color="white" index={i} item22={item2} />
                     )}
                   </div>
                 );
@@ -95,6 +113,7 @@ function SelectBox(props, ref) {
         value={value}
         onChange={(e) => {
           setvalue(e.target.value);
+          // setSelectedDates(JSON.stringify(value));
         }}
       />
     </div>
