@@ -26,7 +26,7 @@ function SelectBox(props, ref) {
       const hourList = list[day].hours;
       //Checking if the Array of Hour hourList contain the hour selected
       if (!hourList.includes(hour)) {
-      // if not selected
+        // if not selected
         hourList.push(hour);
         list[day].hours = hourList;
       } else {
@@ -54,6 +54,8 @@ function SelectBox(props, ref) {
     }
     setSelectedDates(list);
   }
+
+  //hello
 
   useEffect(() => {
     if (value !== "" && Object.entries(selectedDates).length !== 0) {
